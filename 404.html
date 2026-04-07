@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages не поддерживает SPA-роутинг.
+    // 404.html перехватывает любой /slug и редиректит на index.html?p=slug
+    (function () {
+      var path = window.location.pathname;          // /funny
+      var slug = path.replace(/^\//, '').replace(/\/$/, ''); // funny
+      if (slug && slug !== '404') {
+        window.location.replace(
+          window.location.origin + '/?p=' + encodeURIComponent(slug)
+        );
+      } else {
+        window.location.replace('/');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p style="color:#00f5ff;font-family:monospace;text-align:center;margin-top:40vh">
+    // redirecting...
+  </p>
+</body>
+</html>
